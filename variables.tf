@@ -10,17 +10,51 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-variable "length" {
-  type    = number
-  default = 24
+variable "namespace_name" {
+  description = "The name of the Service Bus Namespace"
+  type        = string
 }
 
-variable "number" {
-  type    = bool
-  default = true
+variable "namespace_location" {
+  description = "The location/region where the Service Bus Namespace should be created"
+  type        = string
 }
 
-variable "special" {
-  type    = bool
-  default = false
+variable "resource_group_name" {
+  description = "The name of the Resource Group in which the Service Bus Namespace should be created"
+  type        = string
+}
+
+variable "namespace_sku" {
+  description = "The SKU of the Service Bus Namespace"
+  type        = string
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+}
+
+variable "capacity" {
+  description = "The capacity of the Service Bus Namespace"
+  type        = number
+  default     = 1
+}
+
+variable "identity_type" {
+  description = "The type of identity used for the Service Bus Namespace"
+  type        = string
+  default     = "SystemAssigned"
+}
+
+variable "minimum_tls_version" {
+  description = "The minimum TLS version"
+  type        = string
+  default     = "1.2"
+}
+
+variable "public_network_access_enabled" {
+  description = "Is public network access enabled"
+  type        = bool
+  default     = true
 }

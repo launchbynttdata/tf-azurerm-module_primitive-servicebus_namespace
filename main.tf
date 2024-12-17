@@ -10,8 +10,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-resource "random_string" "string" {
-  length  = var.length
-  numeric = var.number
-  special = var.special
+resource "azurerm_servicebus_namespace" "sb_namespace" {
+  name                = var.namespace_name
+  location            = var.namespace_location
+  resource_group_name = var.resource_group_name
+  sku                 = var.namespace_sku
+
+  tags = var.tags
+
+  capacity = var.capacity
+  identity {
+    type = var.identity_type
+  }
+  minimum_tls_version           = var.minimum_tls_version
+  public_network_access_enabled = var.public_network_access_enabled
 }
