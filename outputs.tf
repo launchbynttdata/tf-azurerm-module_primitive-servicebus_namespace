@@ -24,3 +24,8 @@ output "endpoint" {
   description = "The endpoint URL for the Service Bus Namespace"
   value       = azurerm_servicebus_namespace.sb_namespace.endpoint
 }
+
+output "name" {
+  description = "The name of the Service Bus Namespace"
+  value       = azurerm_servicebus_namespace.sb_namespace.name
+}

@@ -48,4 +48,5 @@ No resources.
 | <a name="output_id"></a> [id](#output\_id) | n/a |
 | <a name="output_identity"></a> [identity](#output\_identity) | n/a |
 | <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | n/a |
+| <a name="output_name"></a> [name](#output\_name) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

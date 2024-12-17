@@ -150,4 +150,5 @@ No modules.
 | <a name="output_id"></a> [id](#output\_id) | The ID of the Service Bus Namespace |
 | <a name="output_identity"></a> [identity](#output\_identity) | The identity associated with the Service Bus Namespace |
 | <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | The endpoint URL for the Service Bus Namespace |
+| <a name="output_name"></a> [name](#output\_name) | The name of the Service Bus Namespace |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
