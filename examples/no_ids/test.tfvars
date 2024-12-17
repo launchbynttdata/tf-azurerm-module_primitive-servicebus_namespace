@@ -9,18 +9,8 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-output "id" {
-  description = "The ID of the Service Bus Namespace"
-  value       = azurerm_servicebus_namespace.sb_namespace.id
+tags = {
+  Purpose = "Terratest"
 }
 
-output "identity" {
-  description = "The identity associated with the Service Bus Namespace"
-  value       = azurerm_servicebus_namespace.sb_namespace.identity
-}
-
-output "endpoint" {
-  description = "The endpoint URL for the Service Bus Namespace"
-  value       = azurerm_servicebus_namespace.sb_namespace.endpoint
-}
+configure_identity = false

@@ -131,17 +131,23 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_namespace_name"></a> [namespace\_name](#input\_namespace\_name) | The name of the Service Bus Namespace | `string` | n/a | yes |
-| <a name="input_namespace_location"></a> [namespace\_location](#input\_namespace\_location) | The location/region where the Service Bus Namespace should be created | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | The name of the Service Bus Namespace | `string` | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | The location/region where the Service Bus Namespace should be created | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the Resource Group in which the Service Bus Namespace should be created | `string` | n/a | yes |
-| <a name="input_namespace_sku"></a> [namespace\_sku](#input\_namespace\_sku) | The SKU of the Service Bus Namespace | `string` | n/a | yes |
+| <a name="input_sku"></a> [sku](#input\_sku) | The SKU of the Service Bus Namespace | `string` | `"Standard"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the resource | `map(string)` | n/a | yes |
-| <a name="input_capacity"></a> [capacity](#input\_capacity) | The capacity of the Service Bus Namespace | `number` | `1` | no |
+| <a name="input_capacity"></a> [capacity](#input\_capacity) | The capacity of the Service Bus Namespace | `number` | `0` | no |
+| <a name="input_configure_identity"></a> [configure\_identity](#input\_configure\_identity) | Should the identity be configured | `bool` | `true` | no |
 | <a name="input_identity_type"></a> [identity\_type](#input\_identity\_type) | The type of identity used for the Service Bus Namespace | `string` | `"SystemAssigned"` | no |
+| <a name="input_identity_ids"></a> [identity\_ids](#input\_identity\_ids) | Specifies a list of User Assigned Managed Identity IDs to be assigned | `list(string)` | `[]` | no |
 | <a name="input_minimum_tls_version"></a> [minimum\_tls\_version](#input\_minimum\_tls\_version) | The minimum TLS version | `string` | `"1.2"` | no |
 | <a name="input_public_network_access_enabled"></a> [public\_network\_access\_enabled](#input\_public\_network\_access\_enabled) | Is public network access enabled | `bool` | `true` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_id"></a> [id](#output\_id) | The ID of the Service Bus Namespace |
+| <a name="output_identity"></a> [identity](#output\_identity) | The identity associated with the Service Bus Namespace |
+| <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | The endpoint URL for the Service Bus Namespace |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

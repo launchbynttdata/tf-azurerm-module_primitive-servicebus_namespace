@@ -10,12 +10,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-variable "namespace_name" {
+variable "name" {
   description = "The name of the Service Bus Namespace"
   type        = string
 }
 
-variable "namespace_location" {
+variable "location" {
   description = "The location/region where the Service Bus Namespace should be created"
   type        = string
 }
@@ -25,9 +25,10 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "namespace_sku" {
+variable "sku" {
   description = "The SKU of the Service Bus Namespace"
   type        = string
+  default     = "Standard"
 }
 
 variable "tags" {
@@ -38,13 +39,25 @@ variable "tags" {
 variable "capacity" {
   description = "The capacity of the Service Bus Namespace"
   type        = number
-  default     = 1
+  default     = 0
+}
+
+variable "configure_identity" {
+  description = "Should the identity be configured"
+  type        = bool
+  default     = true
 }
 
 variable "identity_type" {
   description = "The type of identity used for the Service Bus Namespace"
   type        = string
   default     = "SystemAssigned"
+}
+
+variable "identity_ids" {
+  description = "Specifies a list of User Assigned Managed Identity IDs to be assigned"
+  type        = list(string)
+  default     = []
 }
 
 variable "minimum_tls_version" {

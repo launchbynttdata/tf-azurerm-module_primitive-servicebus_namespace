@@ -11,17 +11,21 @@
 // limitations under the License.
 
 resource "azurerm_servicebus_namespace" "sb_namespace" {
-  name                = var.namespace_name
-  location            = var.namespace_location
-  resource_group_name = var.resource_group_name
-  sku                 = var.namespace_sku
-
-  tags = var.tags
-
-  capacity = var.capacity
-  identity {
-    type = var.identity_type
-  }
+  name                          = var.name
+  location                      = var.location
+  resource_group_name           = var.resource_group_name
+  sku                           = var.sku
+  capacity                      = var.capacity
   minimum_tls_version           = var.minimum_tls_version
   public_network_access_enabled = var.public_network_access_enabled
+
+  dynamic "identity" {
+    for_each = var.configure_identity ? [1] : []
+    content {
+      type         = var.identity_type
+      identity_ids = var.identity_ids
+    }
+  }
+
+  tags = var.tags
 }
