@@ -71,3 +71,35 @@ variable "public_network_access_enabled" {
   type        = bool
   default     = true
 }
+
+variable "network_rule_set" {
+  description = "The Network Rule Set for the Service Bus Namespace"
+  type = object({
+    default_action                = optional(string, "Allow")
+    public_network_access_enabled = optional(bool, true)
+    trusted_services_allowed      = optional(bool)
+    ip_rules                      = optional(list(string))
+  })
+  default = null
+}
+
+variable "network_rules" {
+  description = "The Network Rules for the Service Bus Namespace"
+  type = list(object({
+    subnet_id                            = string
+    ignore_missing_vnet_service_endpoint = optional(bool, false)
+  }))
+  default = []
+}
+
+variable "premium_messaging_partitions" {
+  description = "The number of partitions for Premium Messaging"
+  type        = number
+  default     = 0
+}
+
+variable "local_auth_enabled" {
+  description = "Is local authentication enabled"
+  type        = bool
+  default     = true
+}

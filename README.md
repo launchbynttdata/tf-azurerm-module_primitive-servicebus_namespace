@@ -142,6 +142,10 @@ No modules.
 | <a name="input_identity_ids"></a> [identity\_ids](#input\_identity\_ids) | Specifies a list of User Assigned Managed Identity IDs to be assigned | `list(string)` | `[]` | no |
 | <a name="input_minimum_tls_version"></a> [minimum\_tls\_version](#input\_minimum\_tls\_version) | The minimum TLS version | `string` | `"1.2"` | no |
 | <a name="input_public_network_access_enabled"></a> [public\_network\_access\_enabled](#input\_public\_network\_access\_enabled) | Is public network access enabled | `bool` | `true` | no |
+| <a name="input_network_rule_set"></a> [network\_rule\_set](#input\_network\_rule\_set) | The Network Rule Set for the Service Bus Namespace | <pre>object({<br>    default_action                = optional(string, "Allow")<br>    public_network_access_enabled = optional(bool, true)<br>    trusted_services_allowed      = optional(bool)<br>    ip_rules                      = optional(list(string))<br>  })</pre> | `null` | no |
+| <a name="input_network_rules"></a> [network\_rules](#input\_network\_rules) | The Network Rules for the Service Bus Namespace | <pre>list(object({<br>    subnet_id                            = string<br>    ignore_missing_vnet_service_endpoint = optional(bool, false)<br>  }))</pre> | `[]` | no |
+| <a name="input_premium_messaging_partitions"></a> [premium\_messaging\_partitions](#input\_premium\_messaging\_partitions) | The number of partitions for Premium Messaging | `number` | `0` | no |
+| <a name="input_local_auth_enabled"></a> [local\_auth\_enabled](#input\_local\_auth\_enabled) | Is local authentication enabled | `bool` | `true` | no |
 
 ## Outputs
 
