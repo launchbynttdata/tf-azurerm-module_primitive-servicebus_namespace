@@ -36,6 +36,9 @@ func TestServicebusModule(t *testing.T) {
 			"system_assigned_ids": {
 				"IS_TERRAFORM_IDEMPOTENT_APPLY": false,
 			},
+			"network_rules": {
+				"IS_TERRAFORM_IDEMPOTENT_APPLY": false,
+			},
 		}).
 		Build()
 
