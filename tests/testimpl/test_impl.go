@@ -46,4 +46,15 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 
 		assert.Equal(t, name, resp.Name, "Expected name to be %s, got %s", name, resp.Name)
 	})
+	// verify expected outputs are present:
+	primaryConnectionString := terraform.Output(t, ctx.TerratestTerraformOptions(), "default_primary_connection_string")
+	assert.NotEmpty(t, primaryConnectionString, "Expected primary connection string to be non-empty")
+	assert.Contains(t, primaryConnectionString, "Endpoint=sb://", "Expected primary connection string to contain 'Endpoint=sb://")
+	secondaryConnectionString := terraform.Output(t, ctx.TerratestTerraformOptions(), "default_secondary_connection_string")
+	assert.NotEmpty(t, secondaryConnectionString, "Expected secondary connection string to be non-empty")
+	assert.Contains(t, secondaryConnectionString, "Endpoint=sb://", "Expected secondary connection string to contain 'Endpoint=sb://")
+	primaryKey := terraform.Output(t, ctx.TerratestTerraformOptions(), "default_primary_key")
+	assert.NotEmpty(t, primaryKey, "Expected primary key to be non-empty")
+	secondaryKey := terraform.Output(t, ctx.TerratestTerraformOptions(), "default_secondary_key")
+	assert.NotEmpty(t, secondaryKey, "Expected secondary key to be non-empty")
 }
