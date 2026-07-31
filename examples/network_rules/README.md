@@ -5,14 +5,14 @@ This example will create a User Managed Identity.
 ## Requirements
 
 | Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| ---- | ------- |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.77 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform.registry.launch.nttdata.com/module_primitive/resource_group/azurerm | ~> 1.0 |
 | <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 2.0 |
 | <a name="module_servicebus_namespace"></a> [servicebus\_namespace](#module\_servicebus\_namespace) | ../.. | n/a |
@@ -25,7 +25,7 @@ No resources.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_address_space"></a> [address\_space](#input\_address\_space) | The address space used by the Virtual Network | `list(string)` | `[]` | no |
 | <a name="input_capacity"></a> [capacity](#input\_capacity) | The capacity of the Service Bus Namespace | `number` | `0` | no |
 | <a name="input_configure_identity"></a> [configure\_identity](#input\_configure\_identity) | Should the identity be configured | `bool` | n/a | yes |
@@ -47,7 +47,7 @@ No resources.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_default_primary_connection_string"></a> [default\_primary\_connection\_string](#output\_default\_primary\_connection\_string) | The default primary connection string for the Service Bus Namespace |
 | <a name="output_default_primary_key"></a> [default\_primary\_key](#output\_default\_primary\_key) | The default primary key for the Service Bus Namespace |
 | <a name="output_default_secondary_connection_string"></a> [default\_secondary\_connection\_string](#output\_default\_secondary\_connection\_string) | The default secondary connection string for the Service Bus Namespace |
