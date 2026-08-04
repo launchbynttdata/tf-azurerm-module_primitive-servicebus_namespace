@@ -77,7 +77,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|---------|
+|------|------|
 | [azurerm_servicebus_namespace.sb_namespace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/servicebus_namespace) | resource |
 
 ## Inputs
@@ -103,7 +103,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-|------|---------|
+|------|-------------|
 | <a name="output_default_primary_connection_string"></a> [default\_primary\_connection\_string](#output\_default\_primary\_connection\_string) | The default primary connection string for the Service Bus Namespace |
 | <a name="output_default_primary_key"></a> [default\_primary\_key](#output\_default\_primary\_key) | The default primary key for the Service Bus Namespace |
 | <a name="output_default_secondary_connection_string"></a> [default\_secondary\_connection\_string](#output\_default\_secondary\_connection\_string) | The default secondary connection string for the Service Bus Namespace |
