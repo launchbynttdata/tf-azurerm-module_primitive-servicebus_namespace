@@ -25,7 +25,7 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	}
 
 	// The client requires the full hostname of the service bus
-	busEndpoint := terraform.Output(t, ctx.TerratestTerraformOptions(), "endpoint")
+	busEndpoint := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "endpoint")
 	u, err := url.Parse(busEndpoint)
 	if err != nil {
 		t.Fatalf("Unable to parse service bus endpoint: %e\n", err)
@@ -42,19 +42,19 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 		if err != nil {
 			t.Fatalf("Unable to get namespace properties: %e\n", err)
 		}
-		name := terraform.Output(t, ctx.TerratestTerraformOptions(), "name")
+		name := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "name")
 
 		assert.Equal(t, name, resp.Name, "Expected name to be %s, got %s", name, resp.Name)
 	})
 	// verify expected outputs are present:
-	primaryConnectionString := terraform.Output(t, ctx.TerratestTerraformOptions(), "default_primary_connection_string")
+	primaryConnectionString := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "default_primary_connection_string")
 	assert.NotEmpty(t, primaryConnectionString, "Expected primary connection string to be non-empty")
 	assert.Contains(t, primaryConnectionString, "Endpoint=sb://", "Expected primary connection string to contain 'Endpoint=sb://")
-	secondaryConnectionString := terraform.Output(t, ctx.TerratestTerraformOptions(), "default_secondary_connection_string")
+	secondaryConnectionString := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "default_secondary_connection_string")
 	assert.NotEmpty(t, secondaryConnectionString, "Expected secondary connection string to be non-empty")
 	assert.Contains(t, secondaryConnectionString, "Endpoint=sb://", "Expected secondary connection string to contain 'Endpoint=sb://")
-	primaryKey := terraform.Output(t, ctx.TerratestTerraformOptions(), "default_primary_key")
+	primaryKey := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "default_primary_key")
 	assert.NotEmpty(t, primaryKey, "Expected primary key to be non-empty")
-	secondaryKey := terraform.Output(t, ctx.TerratestTerraformOptions(), "default_secondary_key")
+	secondaryKey := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "default_secondary_key")
 	assert.NotEmpty(t, secondaryKey, "Expected secondary key to be non-empty")
 }
